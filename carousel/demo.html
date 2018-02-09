@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .items {
+            position: relative;
+            width: 100%;
+            height: 345px;
+        }
+
+        .item {
+            display: block;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .active {
+            z-index: 2;
+            animation: fadeIn 1.5s;
+            animation-fill-mode: forwards;
+            -webkit-animation: fadeIn 1.5s;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation: fadeIn 1.5s;
+            -moz-animation-fill-mode: forwards;
+        }
+
+        .fade {
+            animation: fadeOut 1.5s;
+            animation-fill-mode: forwards;
+            -webkit-animation: fadeOut 1.5s;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation: fadeOut 1.5s;
+            -moz-animation-fill-mode: forwards;
+        }
+
+        .carousel {
+            width: 600px;
+            height: auto;
+        }
+
+        .controls {
+            position: relative;
+            overflow: hidden
+        }
+
+        .carousel a {
+            font-size: 28px;
+            font-weight: bold
+        }
+
+        .controls .prev {
+            float: left;
+        }
+
+        .controls .next {
+            float: right;
+        }
+
+        .video-control {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -68px;
+            margin-top: -68px;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .video-control a {
+            display: block;
+            width: 136px;
+            height: 136px;
+            background: url('http://gw.alicdn.com/mt/TB1exduPVXXXXcIXpXXXXXXXXXX-136-136.png') no-repeat center;
+        }
+
+        .thumbs {
+            height: 67px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thumbs .wrapper {
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            position: absolute
+        }
+
+        .thumbs .thumb {
+            height: 67px;
+            box-sizing: border-box;
+            margin-right: 5px;
+            position: relative;
+        }
+
+        .thumbs .current {
+            border: 1px solid #ff0000;
+        }
+
+        .movie-marker{
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: 16px;
+            left: 42px;
+            background: url('http://store.akamai.steamstatic.com/public/images/v5/ico_game_highlight_video.png') no-repeat center;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="items">
+            <div class="item active">
+                <video id="movie" width="600px" height="337px" controls src="http://cdn.steamstatic.com.8686c.com/steam/apps/256695557/movie480.webm?t=1506013215"
+                    poster="http://cdn.steamstatic.com.8686c.com/steam/apps/256695557/movie.293x165.jpg?t=1506013215"></video>
+                <div class="video-control">
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_d9b2da2bfc6f7c1ca7b72ebbfbaea3c74423a33b.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_6eb210754149c8d850d9c8ad3e392a26aefb5db0.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_2fd2970b8a62ff99e9d786bd4dd3803c66a5bcfa.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_e33b87b6ad40870378169086b28923ddae2e33ee.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_2029d2369d0f8db4ee0cca64f5dfd3da40e3509e.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_5d248c83025c7df92f0ab9b24c6c93eb7a71aa93.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_94293f41672ad02c6235094ce5afd3e6a5ad15c8.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_ec3f561f4ebbf113d3f5e315d64f312727f997b7.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+            <div class="item">
+                <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_7f8bbe267bd0374643114a574b6dcee08a7ddd73.600x338.jpg?t=1514842473"
+                    alt="">
+            </div>
+        </div>
+        <div class="thumbs">
+            <div class="wrapper">
+                <div class="thumb current">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/256695557/movie.184x123.jpg?t=1506013215" alt=""
+                        width="116" height="65">
+                        <span class="movie-marker"></span>
+                </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_d9b2da2bfc6f7c1ca7b72ebbfbaea3c74423a33b.116x65.jpg?t=1514842473"
+                        alt="">
+                </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_6eb210754149c8d850d9c8ad3e392a26aefb5db0.116x65.jpg?t=1514842473"
+                        alt="">
+                </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_2fd2970b8a62ff99e9d786bd4dd3803c66a5bcfa.116x65.jpg?t=1514842473"
+                        alt=""> </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_e33b87b6ad40870378169086b28923ddae2e33ee.116x65.jpg?t=1514842473"
+                        alt=""> </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_2029d2369d0f8db4ee0cca64f5dfd3da40e3509e.116x65.jpg?t=1514842473"
+                        alt=""> </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_5d248c83025c7df92f0ab9b24c6c93eb7a71aa93.116x65.jpg?t=1514842473"
+                        alt="">
+                </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_94293f41672ad02c6235094ce5afd3e6a5ad15c8.116x65.jpg?t=1514842473"
+                        alt="">
+                </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_ec3f561f4ebbf113d3f5e315d64f312727f997b7.116x65.jpg?t=1514842473"
+                        alt=""> </div>
+                <div class="thumb">
+                    <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/268130/ss_7f8bbe267bd0374643114a574b6dcee08a7ddd73.116x65.jpg?t=1514842473"
+                        alt=""> </div>
+            </div>
+        </div>
+        <div class="controls">
+            <a href="javascript:;" class="prev">&lt;</a>
+            <a href="javascript:;" class="next">&gt;</a>
+        </div>
+    </div>
+    <script src="jquery.js"></script>
+    <script src="demo.js"></script>
+    <script>
+        new Carousel({
+            interval: 3000,
+            width: 120,
+            pageSize: 5
+        });
+    </script>
+</body>
+
+</html>
